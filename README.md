@@ -6,7 +6,7 @@ Our simulation code supports individual simulations on provided surface samples;
 ### Code Base Overview
 Our simulation code implements the 3D boundary element method (BEM) in a surface scattering context, and acceleration is achieved using the Adaptive Integral Method (AIM). Our code is written in C++ and CUDA C++, and different modules of the simulation are implemented in varied C++ classes. 
 
-Users do not need to read through or understand the code in the following class files:
+#### Users do not need to read through or understand the code in the following class files:
 
 — Estimate
 
@@ -24,12 +24,24 @@ Users do not need to read through or understand the code in the following class 
 
 — Solver
 
-Users are strongly not recommended to modify any of the code in the above class files.
+#### Users are strongly not recommended to modify any of the code in the above class files.
 
 ### Individual Simulations
 The driver code of the simulation is written in the file bem3d.cpp. 
 
-Users also need to understand the command line arguments specified at the beginning of the main function. For individual simulations, the following command-line arguments are relevant:
+#### Users are responsible for providing input data of the correct formats.
+
+Three input files are expected for simulations on each surface sample. Users choose a short name for each surface sample they wish to simulate, and create a folder of this name in the data/ directory. Users should then put three input files into this created folder.
+
+##### zvals.txt
+
+##### wvl.txt
+
+##### wi.txt
+
+#### Users also need to understand the command line arguments specified at the beginning of the main function. 
+
+For individual simulations, the following command-line arguments are relevant:
 
 -c: selects the simulated wavelength from the provided wvl.txt file. If there are C rows (corresponding to C wavelengths) in wvl.txt, this input argument should be an integer between 0 and C-1, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in wvl.txt.
 
