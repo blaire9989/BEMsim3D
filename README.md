@@ -80,3 +80,29 @@ Our intended basis element length was d = 0.025um, so the height data were provi
 ```
 ./bem3d -c 0 -d 0 -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
 ```
+simulates scattering from the surface using the first provided wavelength (0.4um) and the first provided incident direction (normal).
+
+```
+./bem3d -d 4 -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+```
+simulates scattering from the surface using the 25 wavelengths and the last incident direction provided.
+
+```
+./bem3d -c 24 -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+```
+simulates scattering from the surface using the longest wavelength provided and the 5 incident directions.
+
+```
+./bem3d -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+```
+simulates scattering from the surface using all 25 wavelengths and all 5 incident directions.
+
+#### Outputs
+
+For individual simulations, output BRDFs will be written into binary files under the names BRDF_wvlA_wiB.binary, where A and B are integers. These binary files can be opened in MATLAB, using the following example code:
+
+```
+id = fopen('BRDF_wvl0_wi0.binary');
+brdf00 = fread(id, [1024 1024], 'float');
+```
+Note that our outputs are single-precision floating point numbers.
