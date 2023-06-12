@@ -31,9 +31,9 @@ The driver code of the simulation is written in the file bem3d.cpp.
 
 Users also need to understand the command line arguments specified at the beginning of the main function. For individual simulations, the following command-line arguments are relevant:
 
--c: selects the simulated wavelength from the provided wvl.txt file. If there are C rows (corresponding to C wavelengths) in wvl.txt, this input argument should be an integer between 0 and C-1, inclusive.
+-c: selects the simulated wavelength from the provided wvl.txt file. If there are C rows (corresponding to C wavelengths) in wvl.txt, this input argument should be an integer between 0 and C-1, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in wvl.txt.
 
--d: selects the simulated incident direction from the provided wi.txt file. If there are D rows (corresponding to D incident directions) in wi.txt, this input argument should be an integer between 0 and D-1, inclusive.
+-d: selects the simulated incident direction from the provided wi.txt file. If there are D rows (corresponding to D incident directions) in wi.txt, this input argument should be an integer between 0 and D-1, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in wi.txt.
 
 -e: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
 
