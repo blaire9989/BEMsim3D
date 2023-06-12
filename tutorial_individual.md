@@ -33,13 +33,11 @@ For individual simulations, the following command-line arguments are relevant:
 
 -e: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
 
+-l: The side length of the simulated surface, along the $x$ and $y$ directions, in microns. Note that since we only have this one size parameter, surface samples are assumed to be squared.
+
 -o: An integer that represents the resolution of the output image containing BRDF values. All the figures in our paper were made with this argument set to 1024 ($1024 \times 1024$ images).
 
--w: The primary waist of the incident Gaussian beams used for simulations (see Section 3 of the paper for the term primary waist), in microns. Usually, for a simulated surface of $X \mu m \times Y \mu m$, this argument can be chosen as $\~ \min \{X, Y\} / 2.5$.
-
--x: The length of the simulated surface, along the $x$ direction, in microns.
-
--y: The length of the simulated surface, along the $y$ direction, in microns.
+-w: The primary waist of the incident Gaussian beams used for simulations (see Section 3 of the paper for the term primary waist), in microns. Usually, for a simulated surface of $L \mu m \times L \mu m$, this argument can be chosen as $L / 2.5$.
 
 -z: The name of the simulated surface. All the expected input files, wi.txt, wvl.txt, zvals.txt, as well as all the output data, exist in the folder with the provided name, under the data/ directory.
 
@@ -50,22 +48,22 @@ We now provide some example scripts that can set different collections of simula
 Our intended basis element length was $d = 0.025 \mu m$, so the height data were provided as $961 \times 961$ matrices in zvals.txt. We now use the brushedRough surface as an example.
 
 ```
-./bem3d -c 0 -d 0 -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+./bem3d -c 0 -d 0 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
 ```
 simulates scattering from the surface using the first provided wavelength (0.4 $\mu m$) and the first provided incident direction (normal).
 
 ```
-./bem3d -d 4 -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+./bem3d -d 4 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
 ```
 simulates scattering from the surface using the 25 wavelengths and the last incident direction provided.
 
 ```
-./bem3d -c 24 -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+./bem3d -c 24 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
 ```
 simulates scattering from the surface using the longest wavelength provided and the 5 incident directions.
 
 ```
-./bem3d -e 1.0 -o 1024 -w 5.5 -x 24.0 -y 24.0 -z brushedRough
+./bem3d -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
 ```
 simulates scattering from the surface using all 25 wavelengths and all 5 incident directions.
 
