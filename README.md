@@ -6,7 +6,7 @@ Our simulation code supports individual simulations on provided surface samples;
 ### Code Base Overview
 Our simulation code implements the 3D boundary element method (BEM) in a surface scattering context, and acceleration is achieved using the Adaptive Integral Method (AIM). Our code is written in C++ and CUDA C++, and different modules of the simulation are implemented in varied C++ classes. 
 
-Users do not need to (and are not recommended to) read through the code in the following class files:
+Users do not need to read through or understand the code in the following class files:
 
 — Estimate
 
@@ -23,3 +23,7 @@ Users do not need to (and are not recommended to) read through the code in the f
 — Singular (including Singular0, Singular12, Singular34)
 
 — Solver
+
+Users are strongly not recommended to modify any of the code in the above class files.
+
+### Individual Simulations
