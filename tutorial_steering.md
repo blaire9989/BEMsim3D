@@ -1,5 +1,5 @@
 ### Grouped Simulations
-The driver code for grouped simulations is also written in the file $\texttt{bem3d.cpp}$. In addition, we provided two code files, $\texttt{steerBasicDirs.cpp$ and $\texttt{steerBRDFs.cpp}$, as example code that demonstrates beam steering.
+The driver code for grouped simulations is also written in the file $\texttt{bem3d.cpp}$. In addition, we provided two code files, $\texttt{steerBasicDirs.cpp}$ and $\texttt{steerBRDFs.cpp}$, as example code that demonstrates beam steering.
 
 #### Input Data
 As with individual simulations, users choose a short name for the surface sample they wish to simulate, and create a folder of this name in the $\texttt{data}$ directory. 
