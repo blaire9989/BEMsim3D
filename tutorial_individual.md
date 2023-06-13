@@ -36,35 +36,21 @@ $\texttt{-w}$: The primary waist of the incident Gaussian beams used for simulat
 $\texttt{-z}$: The name of the simulated surface. All the expected input files, $\texttt{wi.txt}$, $\texttt{wvl.txt}$, $\texttt{zvals.txt}$, as well as all the output data, exist in the folder with the provided name, under the $\texttt{data}$ directory.
 
 #### Examples
-We now provide some example scripts that can set different collections of simulations running. In the $\texttt{data}$ directory, we have included 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are specified in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files in each subfolder.
+We provided a simple, small-scale example that can be used for initial testing. The required input data are provided in $\texttt{data/test}$ folder. This surface sample is intended to be $12.5 \mu m \times 12.5 \mu m$, and the matrix provided in $\texttt{zvals.txt}$ is $401 \times 401$.
 
-Our intended basis element length was $d = 0.025 \mu m$, so the height data were provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$. We now use the $\texttt{brushedRough}$ surface as an example.
-
+After building the code base, running
 ```
-./bem3d -c 0 -d 0 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
+./bem3d -c 0 -d 0 -e 1.0 -l 12.5 -o 1024 -w 2.5 -z test
 ```
-simulates scattering from the surface using the first wavelength (0.4 $\mu m$) and the first incident direction (normal) provided.
-
-```
-./bem3d -d 4 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
-```
-simulates scattering from the surface using the 25 wavelengths and the last incident direction provided.
-
-```
-./bem3d -c 24 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
-```
-simulates scattering from the surface using the longest wavelength provided and the 5 incident directions.
-
-```
-./bem3d -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
-```
-simulates scattering from the surface using all 25 wavelengths and all 5 incident directions.
-
-#### Outputs
-For individual simulations, output BRDFs will be written into binary files under formatted names. These binary files can be opened in $\texttt{MATLAB}$, using the following example code:
-
+should generate one binary file. This binary file, as well as all the output files with similarly formatted names, can be opened in $\texttt{MATLAB}$ using
 ```
 id = fopen('BRDF_wvl0_wi0.binary');
 brdf00 = fread(id, [1024 1024], 'float');
 ```
-Note that our outputs are single-precision floating point numbers.
+The $1024 \times 1024$ image should look like the following:
+
+Additionally, we also provided 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are provided in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files. For these surfaces, our intended basis element length is $d = 0.025 \mu m$, and so the height data are provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$. As an example, running the command
+```
+./bem3d -d 0 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z isotropicSmooth
+```
+should generate 25 binary files that contain spectral BRDF data, which can be converted into RGB to make the first BRDF plot in our paper's teaser image.
