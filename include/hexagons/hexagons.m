@@ -1,16 +1,11 @@
-% The MATLAB function hexagons() generates a hexagon plot that represents the chosen
-% basic incident directions used in beam steering.
+% Generates a hexagon plot that represents the chosen basic incident directions in beam steering.
 % radius: the radius of circumscribed circle of each polygon.
-% Different radius should be used for different Gaussian beam waist used in the beam
-% steering simulations.
-% For a chosen waist of w, radius is recommended to be no greater than sin(0.4 / (pi * w))
-% Adjusting radius changes the total number of hexagons drawn, which in turn represents
-% the total number of basic incident directions considered for beam steering.
+% Different radius should be used for different Gaussian beam waist used in subregion simulations.
+% For a chosen waist w, radius is recommended to be no greater than sin(0.4 / (pi * w)).
 % Running the following code generates the provided hexagon_2.5um.txt file:
 % hexInfo = hexagons(0.0495);
 % writematrix(hexInfo, "hexagon_2.5um.txt");
-% This file specifies 499 basic incident directions that have been tested to work well
-% in beam steering, with Gaussian beam waist w = 2.5um used in subregion simulations.
+% The file specifies 499 basic incident directions that work for w = 2.5um in subregion simulations.
 % DO NOT modify the following functions--they generate data of the right format.
 
 function hexInfo = hexagons(radius)
