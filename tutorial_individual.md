@@ -47,7 +47,7 @@ We provided a simple, small-scale example that can be used for initial testing. 
 
 After building the code base, running
 ```
-./bem3d -c 0 -d 0 -e 1.0 -l 12.5 -o 1024 -w 2.5 -z test
+./bem3d -c 0 -d 0 -e 1.0 -l 12.5 -o 1024 -w 2.5 -z test   # The -c and -d arguments are optional as there is only one queried wavelength and incident direction
 ```
 should generate one binary file. This binary file, as well as all the output files with similarly formatted names, can be opened in $\texttt{MATLAB}$ using
 ```
