@@ -5,10 +5,10 @@ The driver code for grouped simulations is also written in the file $\texttt{bem
 As with individual simulations, users choose a short name for the surface sample they wish to simulate, and create a folder of this name in the $\texttt{data}$ directory. 
 
 ##### .txt Files
-Even though simulations are performed on subregions of the surface, we still ask users to provide the file $\texttt{zvals.txt}$ that stores the height values for the $\textit{entire}$ surface area, as this is important for integrating together the results from subregion simulations. The files $\texttt{wi.txt}$ and $\texttt{wvl.txt}$ also need to be provided in the created folder.
+We ask users to provide the file $\texttt{zvals.txt}$ that stores the height values for the $\textit{entire}$ surface area, as this is important for integrating together the results from subregion simulations. The files $\texttt{wi.txt}$ and $\texttt{wvl.txt}$ also need to be provided in the created folder.
 
 ##### Patch Subfolders
-Our provided two folders of data as examples for beam steering, and in each folder, there are many subfolders under the names $\texttt{patchXY}$, where $X$ and $Y$ are integers. These subfolders correspond to subregions of the simulated surface, and in our examples, the surface area is divided into $9 \times 9 = 81$ subregions (partially overlapping). Each of the $\texttt{patchXY}$ subfolders needs to contain its own $\texttt{zvals.txt}$ file, which contains the subregion height data. Note that the data matrix contained in these subfolder $\texttt{zvals.txt}$ files are submatrices of the data in $\texttt{zvals.txt}$ in the umbrella data folder.
+We provided two folders of data as examples for beam steering, and in each folder, there are many subfolders under the names $\texttt{patchXY}$, where $X$ and $Y$ are integers. These subfolders correspond to subregions of the simulated surface, and in our examples, the surface area is divided into $9 \times 9 = 81$ subregions (partially overlapping). Each of the $\texttt{patchXY}$ subfolders needs to contain its own $\texttt{zvals.txt}$ file, which contains the subregion height data. Note that the data matrix contained in these subfolder $\texttt{zvals.txt}$ files are submatrices of the data in $\texttt{zvals.txt}$ in the umbrella data folder.
 
 Users need to create all the subfolders as well as the height data file in each subfolder.
 
