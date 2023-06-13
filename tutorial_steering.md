@@ -17,59 +17,59 @@ The code in $\texttt{steerBasicDirs.cpp}$ preprocesses the input file $\texttt{w
 
 Two command line arguments are required for running the code in $\texttt{steerBasicDirs.cpp}$:
 
--h: The name of the file that contains information on available incident directions. These files exist in the $\texttt{include/hexagons}$ folder, where we have provided an example file as well as a $\texttt{MATLAB}$ script containing code and instructions for generating more of these binary files.
+$\texttt{-h}$: The name of the file that contains information on available incident directions. These files exist in the $\texttt{include/hexagons}$ folder, where we have provided an example file as well as a $\texttt{MATLAB}$ script containing code and instructions for generating more of these files.
 
--z: The name of the simulated surface that points the code to the folder that to read input data and write output files.
+$\texttt{-z}$: The name of the simulated surface that points the code to the folder that to read input data and write output files.
 
 See a later section for an example run of this preprocessing code.
 
 #### Simulating
-To invoke grouped simulations, users need to run the code in $\texttt{bem3d.cpp}$ while providing a few more command line arguments than for individual simulations. Importantly, for each given wavelength and basic incident direction, simulations are done on different subregions of the surface in loops, and intermediate results are written in corresponding subfolders. To avoid flooding the disk, these intermediate results are immediately processed after all the subregion simulations are completed. Simulations with the next wavelength or incident direction will overwrite the intermediate files. For this reason, only one group of simulations should be done before each postprocessing step, so users must explicitly provide the wavelength and incident direction with the $\texttt{-c}$ and $\texttt{-d}$ arguments.
+To invoke grouped simulations, users need to run the code in $\texttt{bem3d.cpp}$ while providing a few more command line arguments than for individual simulations. Importantly, for each given wavelength and basic incident direction, simulations are done on different subregions of the surface in loops, and intermediate results are written in corresponding subfolders. To avoid flooding the disk, these intermediate results are immediately processed after all the subregion simulations are completed. Simulations with the next wavelength or incident direction will overwrite the intermediate files.
 
--a: The $x$ index of the subregion simulation. If the entire surface area is divided into $M \times M$ subregions, this argument should be an integer between 0 and $M-1$, inclusive.
+$\texttt{-a}$: The $x$ index of the subregion simulation. If the entire surface area is divided into $M \times M$ subregions, this argument should be an integer between 0 and $M-1$, inclusive.
 
--b: The $y$ index of the subregion simulation. Analogous to the previous argument.
+$\texttt{-b}$: The $y$ index of the subregion simulation. Analogous to the previous argument.
 
--c: As for individual simulations, selects the simulated wavelength from the $\texttt{wvl.txt}$ file. For grouped simulations, users MUST provide this argument. If the user did not provide this argument, simulations would be run using the first wavelength provided.
+$\texttt{-c}$: As for individual simulations, selects the simulated wavelength from the $\texttt{wvl.txt}$ file. For grouped simulations, if the user did not provide this argument, simulations would be run using the first wavelength provided.
 
--d: Selects the simulated incident direction from the required basic incident directions. The preprocessing code prints out a message indicating the total number of required incident directions. If there are $D$ required directions, this argument should be an integer between 0 and $D-1$. Users MUST provide this argument. If the user did not provide this argument, simulations would be run using the first basic incident direction.
+$\texttt{-d}$: Selects the simulated incident direction from the required basic incident directions. The preprocessing code prints out a message indicating the total number of required incident directions. If there are $D$ required directions, this argument should be an integer between 0 and $D-1$. If the user did not provide this argument, simulations would be run using the first basic incident direction.
 
--e: Same as for individual simulations.
+$\texttt{-e}$: Same as for individual simulations.
 
--l: Same as for individual simulations, and this is the size of the simulated surface subregion.
+$\texttt{-l}$: Same as for individual simulations, and this is the size of the simulated surface subregion.
 
--m: The total number of subregion simulations along the $x$ direction.
+$\texttt{-m}$: The total number of subregion simulations along the $x$ direction.
 
--n: The total number of subregion simulations along the $y$ direction.
+$\texttt{-n}$: The total number of subregion simulations along the $y$ direction.
 
--o: Same as for individual simulations.
+$\texttt{-o}$: Same as for individual simulations.
 
--w: Same as for individual simulation, and this is the beam waist used in the subregion simulation.
+$\texttt{-w}$: Same as for individual simulation, and this is the beam waist used in the subregion simulation.
 
--z: The name of the simulated surface.
+$\texttt{-z}$: The name of the simulated surface.
 
 #### Postprocessing
-After a group of subregion simulations are completed, users can run the code in $\texttt{steerBRDFs.cpp}$ to process the subregion results and synthesize BRDFs. The command line arguments are as follows:
+After one group of subregion simulations completes, users can run the code in $\texttt{steerBRDFs.cpp}$ to process the subregion results and synthesize BRDFs. The command line arguments are as follows:
 
--c: Index of the simulated wavelength. This should be the same as the $\texttt{-c}$ argument provided in each subregion simulation.
+$\texttt{-c}$: Index of the simulated wavelength. This should be the same as the $\texttt{-c}$ argument provided in each subregion simulation.
 
--d: Index of the simulated basic incident direction. This should be the same as the $\texttt{-d}$ argument provided in each subregion simulation.
+$\texttt{-d}$: Index of the simulated basic incident direction. This should be the same as the $\texttt{-d}$ argument provided in each subregion simulation.
 
--e: Same as the $\texttt{-e}$ argument provided in each subregion simulation.
+$\texttt{-e}$: Same as the $\texttt{-e}$ argument provided in each subregion simulation.
 
--m: Same as the $\texttt{-m}$ argument provided in each subregion simulation.
+$\texttt{-m}$: Same as the $\texttt{-m}$ argument provided in each subregion simulation.
 
--n: Same as the $\texttt{-n}$ argument provided in each subregion simulation.
+$\texttt{-n}$: Same as the $\texttt{-n}$ argument provided in each subregion simulation.
 
--o: Same as the $\texttt{-o}$ argument provided in each subregion simulation.
+$\texttt{-o}$: Same as the $\texttt{-o}$ argument provided in each subregion simulation.
 
--w: Same as the $\texttt{-w}$ argument provided in each subregion simulation.
+$\texttt{-w}$: Same as the $\texttt{-w}$ argument provided in each subregion simulation.
 
--x: The length of the entire surface area, along the $x$ direction, in microns.
+$\texttt{-x}$: The length of the entire surface area, along the $x$ direction, in microns.
 
--y: The length of the entire surface area, along the $y$ direction, in microns. Note that the entire surface area does not need to be square, since we can combine together different numbers of subregions along the two directions.
+$\texttt{-y}$: The length of the entire surface area, along the $y$ direction, in microns. Note that the entire surface area does not need to be square, since we can combine together different numbers of subregions along the two directions.
 
--z: The name of the simulated surface.
+$\texttt{-z}$: The name of the simulated surface.
 
 Running the code will generate the BRDF lobes for the entire, large surface area, for all the queried incident directions provided in $\texttt{wi.txt}$ that correspond to the currently simulated basic incident direction.
 
