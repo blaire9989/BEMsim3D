@@ -74,13 +74,13 @@ $\texttt{-z}$: The name of the simulated surface.
 Running the code will generate the BRDF lobes for the entire, large surface area, for all the queried incident directions provided in $\texttt{wi.txt}$ that correspond to the currently simulated basic incident direction.
 
 #### Examples
-In the $\texttt{data}$ directory, we have included 2 folders that correspond to two featured $32 \mu m \times 32 \mu m$ surface samples. Each surface sample is divided into $9 \times 9 = 81$ partially overlapping subregions, and each subregion is $12 \mu m \times 12 \mu m$. The shift between adjacent subregions is $2.5 \mu m$. In our code, this shift is required to match the primary waist of the Gaussian beams used in the subregion simulations (specified by the $\texttt{-w}$ argument). 
+In the $\texttt{data}$ directory, we have included 2 folders that correspond to two featured $32 \mu m \times 32 \mu m$ surface samples. Each surface sample is divided into $9 \times 9 = 81$ partially overlapping subregions, and each subregion is $12 \mu m \times 12 \mu m$. The shift between adjacent subregions is $2.5 \mu m$. In our code, this shift is required to match the primary waist of the Gaussian beams used in the subregion simulations (specified by the $\texttt{-w}$ argument). The intended basis element size is $d = 0.025 \mu m$, so height field matrix for the entire surface has size $1281 \times 1281$, and the height field matrices for the subregions have size $481 \times 481$.
 
-For both examples, all the queried incident directions correspond to the same basic incident direction. We now use the $\texttt{steerBumpy}$ surface as an example. Running the code
+We now use the $\texttt{steerBumpy}$ surface as an example. Running the code
 ```
 ./steerBasicDirs -h hexagon_2.5um -z steerBumpy
 ```
-should print out a message indicating there is only one basic incident direction needed.
+should print out a message indicating there is only 1 basic incident direction needed.
 
 We then run subregion simulations in loops, and postprocess results for each wavelength once the corresponding group of simulations completes:
 ```
