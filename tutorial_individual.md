@@ -1,5 +1,5 @@
 ### Individual Simulations
-The driver code of the simulation is written in the file bem3d.cpp. 
+The driver code of the simulation is written in the file $\texttt{bem3d.cpp}$. 
 
 #### Input Data
 Three input files are expected for simulations on each surface sample. Users choose a short name for each surface sample they wish to simulate, and create a folder of this name in the $\texttt{data}$ directory. Users should then put three input files into this created folder.
@@ -52,7 +52,7 @@ After building the code base, running
 should generate one binary file. This binary file, as well as all the output files with similarly formatted names, can be opened in $\texttt{MATLAB}$ using
 ```
 id = fopen('BRDF_wvl0_wi0.binary');
-brdf00 = fread(id, [1024 1024], 'float');
+brdf00 = fread(id, [1024 1024], 'float');   % single precision is used
 ```
 The $1024 \times 1024$ image should look like the following:
 
