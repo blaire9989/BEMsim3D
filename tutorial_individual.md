@@ -54,7 +54,11 @@ should generate one binary file. This binary file, as well as all the output fil
 id = fopen('BRDF_wvl0_wi0.binary');
 brdf00 = fread(id, [1024 1024], 'float');   % single precision is used
 ```
-The $1024 \times 1024$ image should look like the following:
+The image should look like the following:
+
+<p align="center">
+  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/test/brdf00.jpg" alt="gray" style="width:300px;"/>
+</p>
 
 Additionally, we also provided 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are provided in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files. For these surfaces, our intended basis element length is $d = 0.025 \mu m$, and so the height data are provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$. As an example, running the command
 ```
@@ -63,5 +67,5 @@ Additionally, we also provided 6 folders that correspond to our featured $24 \mu
 should generate 25 binary files that contain spectral BRDF data, which can be converted into RGB to make this colored image (without the gray area). It requires having 4 GPUs and takes around 2 hours:
 
 <p align="center">
-  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/isotropicSmooth/example.jpg" alt="colored" style="width:200px;"/>
+  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/isotropicSmooth/example.jpg" alt="colored" style="width:300px;"/>
 </p>
