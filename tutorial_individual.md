@@ -62,4 +62,6 @@ Additionally, we also provided 6 folders that correspond to our featured $24 \mu
 ```
 should generate 25 binary files that contain spectral BRDF data, which can be converted into RGB to make this colored image (without the gray area). It requires having 4 GPUs and takes around 2 hours:
 
-<img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/isotropicSmooth/example.jpg" alt="colored" style="width:200px;"/>
+<p align="center">
+  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/isotropicSmooth/example.jpg" alt="colored" style="width:200px;"/>
+</p>
