@@ -7,9 +7,9 @@ Three input files are expected for simulations on each surface sample. Users cho
 
 ##### zvals.txt
 
-A .txt file that contains height field data that specify the surface heights. As mentioned in our paper, each surface is discretized into $N_x \times N_y$ quadrilateral basis elements. Height values at the corners of all the basis elements need to be provided, meaning that zvals.txt should contain a matrix with size $(N_x + 1) \times (N_y + 1)$. See Fig. 3 of our paper for an illustration.
+A .txt file that contains height field data that specify the surface heights. Each surface is assumed to be square and discretized into $N \times N$ quadrilateral basis elements. Height values at the corners of all the basis elements need to be provided, meaning that zvals.txt should contain a matrix with size $(N + 1) \times (N + 1)$. See Fig. 3 of our paper for an illustration.
 
-As we will discuss in the command line arguments section, users are also expected to provide the size of the simulated surface, in microns. Our code will infer the size of each quadrilateral basis element. Importantly, our code assumes that each basis element is squared and that all the basis elements have the same size ($d \mu m \times d \mu m$) when projected onto the $xy$ plane. This means that if the specified size of the surface is $X \mu m \times Y \mu m$, and the matrix contained in zvals.txt has size $(N_x + 1) \times (N_y + 1)$, users need to guarantee that $X / N_x = Y / N_y$ (if this is not true, the simulation will automatically change the intended resolution of the height data in the $y$ dimension). The basis element size is then given by $d = X / N_x$. Please see our examples below for more clarifications.
+As we will discuss in the command line arguments section, users are also expected to provide the size of the simulated surface, in microns. Our code will infer the size of each quadrilateral basis element. Importantly, our code assumes that each basis element is square and that all the basis elements have the same size when projected onto the $xy$ plane. This means that if the specified size of the surface is $L \mu m \times L \mu m$, and the matrix contained in zvals.txt has size $(N + 1) \times (N + 1)$, then the basis element size is then given by $d = L / N$. Please see our examples below for more clarifications.
 
 ##### wvl.txt
 
@@ -33,11 +33,11 @@ For individual simulations, the following command-line arguments are relevant:
 
 -e: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
 
--l: The side length of the simulated surface, along the $x$ and $y$ directions, in microns. Note that since we only have this one size parameter, surface samples are assumed to be squared.
+-l: The side length of the simulated surface, along the $x$ and $y$ directions, in microns. Note that since surface samples are assumed to be square, we only have this one size parameter.
 
 -o: An integer that represents the resolution of the output image containing BRDF values. All the figures in our paper were made with this argument set to 1024 ($1024 \times 1024$ images).
 
--w: The primary waist of the incident Gaussian beams used for simulations (see Section 3 of the paper for the term primary waist), in microns. Usually, for a simulated surface of $L \mu m \times L \mu m$, this argument can be chosen as $L / 2.5$.
+-w: The primary waist of the incident Gaussian beams used for simulations (see Section 3 of the paper for the term primary waist), in microns. Usually, for a simulated surface of $L \mu m \times L \mu m$, this argument can be chosen as $L / 2.5$. The incident Gaussian beam is approximately focused at the center of the surface patch.
 
 -z: The name of the simulated surface. All the expected input files, wi.txt, wvl.txt, zvals.txt, as well as all the output data, exist in the folder with the provided name, under the data/ directory.
 
