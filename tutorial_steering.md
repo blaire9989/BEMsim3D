@@ -34,42 +34,28 @@ $\texttt{-c}$: As for individual simulations, selects the simulated wavelength f
 
 $\texttt{-d}$: Selects the simulated incident direction from the required basic incident directions. The preprocessing code prints out a message indicating the total number of required incident directions. If there are $D$ required directions, this argument should be an integer between 0 and $D-1$. If the user did not provide this argument, simulations would be run using the first basic incident direction.
 
-$\texttt{-e}$: Same as for individual simulations.
+$\texttt{-e}$: See individual simulations.
 
-$\texttt{-l}$: Same as for individual simulations, and this is the size of the simulated surface subregion.
+$\texttt{-l}$: See individual simulations, and this is the size of the simulated surface subregion.
 
 $\texttt{-m}$: The total number of subregion simulations along the $x$ direction.
 
 $\texttt{-n}$: The total number of subregion simulations along the $y$ direction.
 
-$\texttt{-o}$: Same as for individual simulations.
+$\texttt{-o}$: See individual simulations.
 
-$\texttt{-w}$: Same as for individual simulation, and this is the beam waist used in the subregion simulation.
+$\texttt{-w}$: See individual simulation, and this is the beam waist used in the subregion simulation.
 
 $\texttt{-z}$: The name of the simulated surface.
 
 #### Postprocessing
 After one group of subregion simulations completes, users can run the code in $\texttt{steerBRDFs.cpp}$ to process the subregion results and synthesize BRDFs. The command line arguments are as follows:
 
-$\texttt{-c}$: Index of the simulated wavelength. This should be the same as the $\texttt{-c}$ argument provided in each subregion simulation.
-
-$\texttt{-d}$: Index of the simulated basic incident direction. This should be the same as the $\texttt{-d}$ argument provided in each subregion simulation.
-
-$\texttt{-e}$: Same as the $\texttt{-e}$ argument provided in each subregion simulation.
-
-$\texttt{-m}$: Same as the $\texttt{-m}$ argument provided in each subregion simulation.
-
-$\texttt{-n}$: Same as the $\texttt{-n}$ argument provided in each subregion simulation.
-
-$\texttt{-o}$: Same as the $\texttt{-o}$ argument provided in each subregion simulation.
-
-$\texttt{-w}$: Same as the $\texttt{-w}$ argument provided in each subregion simulation.
+$\texttt{-c}$, $\texttt{-d}$, $\texttt{-e}$, $\texttt{-m}$, $\texttt{-n}$, $\texttt{-o}$, $\texttt{-w}$, $\texttt{-z}$: these input arguments must $\textit{exactly}$ match the corresponding argument provided in each subregion simulation. See example below.
 
 $\texttt{-x}$: The length of the entire surface area, along the $x$ direction, in microns.
 
 $\texttt{-y}$: The length of the entire surface area, along the $y$ direction, in microns. Note that the entire surface area does not need to be square, since we can combine together different numbers of subregions along the two directions.
-
-$\texttt{-z}$: The name of the simulated surface.
 
 Running the code will generate the BRDF lobes for the entire, large surface area, for all the queried incident directions provided in $\texttt{wi.txt}$ that correspond to the currently simulated basic incident direction.
 
@@ -96,6 +82,3 @@ do
   ./steerBRDFs -c ${k} -d 0 -e 1.0 -m 9 -n 9 -o 1024 -w 2.5 -x 32.0 -y 32.0 -z steerBumpy
 done
 ```
-
-#### Output
-Output binary files have the same formatted names as for individual simulations, where the indexing with respect to incident directions correspond to the original $\texttt{wi.txt}$ file provided by the user.
