@@ -3,7 +3,7 @@ The driver code of the simulation is written in the file bem3d.cpp.
 
 #### Input Data
 
-Three input files are expected for simulations on each surface sample. Users choose a short name for each surface sample they wish to simulate, and create a folder of this name in the data/ directory. Users should then put three input files into this created folder.
+Three input files are expected for simulations on each surface sample. Users choose a short name for each surface sample they wish to simulate, and create a folder of this name in the $\texttt{data}$ directory. Users should then put three input files into this created folder.
 
 ##### zvals.txt
 
