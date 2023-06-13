@@ -4,7 +4,7 @@ Open-source code base of the SIGGRAPH 2023 paper, "A Full-Wave Reference Simulat
 Our simulation code supports individual simulations on provided surface samples; it also supports grouped simulations on subregions of given surface samples, which can be used along with our "beam steering" technique for generating BRDFs corresponding to densely sampled directions.
 
 ### Code Base Overview
-Our simulation code implements the 3D boundary element method (BEM) in a surface scattering context, and acceleration is achieved using the Adaptive Integral Method (AIM). Our code is written in C++ and CUDA C++, and different modules of the simulation are implemented in varied C++ classes. The only 3 files that users may need to read or understand are bem3d.cpp, steerBasicDirs.cpp, and steerBRDFs.cpp. 
+Our simulation code implements the 3D boundary element method (BEM) in a surface scattering context, and acceleration is achieved using the Adaptive Integral Method (AIM). Our code is written in C++ and CUDA C++, and different modules of the simulation are implemented in varied C++ classes. The only 3 files that users may need to read or understand are $\texttt{bem3d.cpp}$, $\texttt{steerBasicDirs.cpp}$, and $\texttt{steerBRDFs.cpp}$. 
 
 #### Users do not need to understand and are strongly not recommended to modify the code in any other file.
 
@@ -22,7 +22,7 @@ One issue we encountered when testing the code on some different machines occurr
 ```
 /usr/include/c++/11/bits/std_function.h:530:146: error: parameter packs not expanded with '...'
 ```
-please refer to [this post](https://github.com/NVIDIA/nccl/issues/650) and correspondingly modify a few lines in your std_function.h code file.
+please refer to [this post](https://github.com/NVIDIA/nccl/issues/650).
 
 ### Tutorial and Support
 For instructions on running individual simulations, please see [this tutorial](https://github.com/blaire9989/BEMsim3D/blob/main/tutorial_individual.md).
