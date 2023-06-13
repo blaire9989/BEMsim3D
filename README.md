@@ -18,23 +18,8 @@ One issue we encountered when testing the code on some different machines occurr
 ### Code Base Overview
 Our simulation code implements the 3D boundary element method (BEM) in a surface scattering context, and acceleration is achieved using the Adaptive Integral Method (AIM). Our code is written in C++ and CUDA C++, and different modules of the simulation are implemented in varied C++ classes. 
 
-#### Users do not need to understand and are strongly not recommended to modify the code in the following class files:
-
-— Estimate
-
-— Grid
-
-— Incidence
-
-— Kernels
-
-— MVProd (including MVProd0, MVProd1, MVProd2, MVProd3, MVProd4)
-
-— Scattering
-
-— Singular (including Singular0, Singular12, Singular34)
-
-— Solver
+The only 3 files that users may need to read or understand are bem3d.cpp, steerBasicDirs.cpp, and steerBRDFs.cpp. 
+#### Users do not need to understand and are strongly not recommended to modify the code in any other code file.
 
 ### Tutorial and Support
 For instructions on running individual simulations, please see [this tutorial](https://github.com/blaire9989/BEMsim3D/blob/main/tutorial_individual.md).
