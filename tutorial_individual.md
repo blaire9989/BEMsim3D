@@ -23,7 +23,7 @@ If you intend to simulate a surface with size $L \mu m \times L \mu m$, and your
 
 (a) The basis element size, $d = L / N$ is recommended to be at most 0.04, to ensure accuracy.
 
-(b) If the number $N / 1.6$ happens to be an integer and this integer is a product of small primes (2, 3, 5, 7), the simulation speed will be in general more optimal (due to underlying FFT routines).
+(b) If the integer $\lceil N / 1.6 \rceil$ is a product of small primes (2, 3, 5, 7), the simulation speed will be in general more optimal (due to underlying FFT routines).
 
 #### Command Line Arguments 
 For individual simulations, the following command-line arguments are relevant:
