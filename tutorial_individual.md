@@ -69,7 +69,7 @@ simulates scattering from the surface using all 25 wavelengths and all 5 inciden
 
 #### Outputs
 
-For individual simulations, output BRDFs will be written into binary files under the names $\texttt{BRDF}$_$\texttt{wvlA}$_$\texttt{wiB.binary}$, where A and B are integers. These binary files can be opened in $\texttt{MATLAB}$, using the following example code:
+For individual simulations, output BRDFs will be written into binary files under the names BRDF_wvlA_wiB.binary, where A and B are integers. These binary files can be opened in $\texttt{MATLAB}$, using the following example code:
 
 ```
 id = fopen('BRDF_wvl0_wi0.binary');
