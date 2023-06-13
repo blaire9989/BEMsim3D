@@ -60,4 +60,4 @@ Additionally, we also provided 6 folders that correspond to our featured $24 \mu
 ```
 ./bem3d -d 0 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z isotropicSmooth
 ```
-should generate 25 binary files that contain spectral BRDF data, which can be converted into RGB to make the first BRDF plot in our paper's teaser image (it requires having 4 GPUs and takes around 2 hours):
+should generate 25 binary files that contain spectral BRDF data, which can be converted into RGB to make this colored image (without the gray area). It requires having 4 GPUs and takes around 2 hours:
