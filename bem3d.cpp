@@ -5,21 +5,20 @@
 
 int main(int argc, char **argv) {
     int opt, bx = -1, by = -1, color = -1, dir = -1, nx, ny, outres;
-    double exterior, w_um, x_um, y_um;
+    double exterior, l_um, w_um;
     string zname;
-    while ((opt = getopt(argc, argv, "a:b:c:d:e:m:n:o:w:x:y:z:")) != -1) {
+    while ((opt = getopt(argc, argv, "a:b:c:d:e:l:m:n:o:w:z:")) != -1) {
         switch (opt) {
             case 'a': bx = atoi(optarg); break;
             case 'b': by = atoi(optarg); break;
             case 'c': color = atoi(optarg); break;
             case 'd': dir = atoi(optarg); break;
             case 'e': exterior = atof(optarg); break;
+            case 'l': l_um = atof(optarg); break;
             case 'm': nx = atoi(optarg); break;
             case 'n': ny = atoi(optarg); break;
             case 'o': outres = atoi(optarg); break;
             case 'w': w_um = atof(optarg); break;
-            case 'x': x_um = atof(optarg); break;
-            case 'y': y_um = atof(optarg); break;
             case 'z': zname = optarg; break;
         }
     }
@@ -54,7 +53,7 @@ int main(int argc, char **argv) {
     }
 
     // Estimate the memory usage in each simulation and select a computation plan
-    Estimate* est = new Estimate(x_um, y_um, z, useProvided, shift);
+    Estimate* est = new Estimate(l_um, l_um, z, useProvided, shift);
     double mem11, mem12, mem21, mem22, mem34;
     est->memGB(mem11, mem12, mem21, mem22, mem34);
     int deviceCount, plan, ind1 = -1, ind40 = -1, ind41 = -1, ind42 = -1, ind43 = -1;
