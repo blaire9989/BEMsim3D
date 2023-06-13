@@ -27,7 +27,7 @@ please refer to [this post](https://github.com/NVIDIA/nccl/issues/650) and corre
 ### Tutorial and Support
 For instructions on running individual simulations, please see [this tutorial](https://github.com/blaire9989/BEMsim3D/blob/main/tutorial_individual.md).
 
-For instructions on grouped simulations with beam steering, please see [this additional tutorial](dummy.com).
+For instructions on grouped simulations with beam steering, please see [this additional tutorial](https://github.com/blaire9989/BEMsim3D/blob/main/tutorial_steering.md).
 
 For any questions on the code base, please contact the author at yy735@cornell.edu.
 
