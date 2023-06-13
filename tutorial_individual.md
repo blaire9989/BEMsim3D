@@ -18,6 +18,13 @@ A $\texttt{.txt}$ files that contains some rows of data, where each row specifie
 ##### Formatting
 All the data values in the aforementioned $\texttt{.txt}$ files are assumed to be delimited by commas(,) in each row. We usually construct the input data matrices in $\texttt{MATLAB}$ and use the $\texttt{writematrix}$ function in $\texttt{MATLAB}$ to write the $\texttt{.txt}$ files.
 
+##### Additional Tips
+If you intend to simulate a surface with size $L \mu m \times L \mu m$, and your prepared height field matrix has size $(N + 1) \times (N + 1)$, we have two suggestions on the choice of $N$ (your simulation resolution):
+
+(a) The basis element size, $d = L / N$ is recommended to be at most 0.04, to ensure accuracy.
+
+(b) If the number $N / 1.6$ happens to be an integer and this integer is a product of small primes (2, 3, 5, 7), the simulation speed will be in general more optimal (due to underlying FFT routines).
+
 #### Command Line Arguments 
 For individual simulations, the following command-line arguments are relevant:
 
