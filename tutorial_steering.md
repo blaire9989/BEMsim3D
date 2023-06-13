@@ -98,4 +98,4 @@ done
 ```
 
 #### Output
-Output binary files have the same formatted names as for individual simulations, while the indexing with respect to incident directions correspond to the original $\texttt{wi.txt}$ file provided by the user, not the basic incident directions, since one BRDF lobe is computed for each queried direction.
+Output binary files have the same formatted names as for individual simulations, where the indexing with respect to incident directions correspond to the original $\texttt{wi.txt}$ file provided by the user.
