@@ -38,6 +38,7 @@ Our simulation code implements the 3D boundary element method (BEM) in a surface
 
 #### Users are strongly not recommended to modify any code in the above class files.
 
+### Tutorial and Support
 For instructions on running individual simulations, please see [this tutorial](https://github.com/blaire9989/BEMsim3D/blob/main/tutorial_individual.md).
 
 For instructions on grouped simulations with beam steering, please see [this longer tutorial](dummy.com).
