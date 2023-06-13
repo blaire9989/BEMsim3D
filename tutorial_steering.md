@@ -17,7 +17,7 @@ The code in $\texttt{steerBasicDirs.cpp}$ preprocesses the input file $\texttt{w
 
 Two command line arguments are required for running the code in $\texttt{steerBasicDirs.cpp}$:
 
--h: The name of the $\texttt{.binary}$ file that contains information on available incident directions. These binary files exist in the $\texttt{include/hexagons} folder, where we have provided an example file as well as a $\texttt{MATLAB}$ script containing code and instructions for generating more of these binary files.
+-h: The name of the file that contains information on available incident directions. These files exist in the $\texttt{include/hexagons}$ folder, where we have provided an example file as well as a $\texttt{MATLAB}$ script containing code and instructions for generating more of these binary files.
 
 -z: The name of the simulated surface that points the code to the folder that to read input data and write output files.
 
