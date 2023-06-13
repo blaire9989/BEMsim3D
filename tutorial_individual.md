@@ -27,9 +27,9 @@ All the data values in the aforementioned $\texttt{.txt}$ files are assumed to b
 
 For individual simulations, the following command-line arguments are relevant:
 
--c: selects the simulated wavelength from the provided $\texttt{wvl.txt}$ file. If there are $C$ rows (corresponding to $C$ wavelengths) in $\texttt{wvl.txt}$, this input argument should be an integer between 0 and $C-1$, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in $\texttt{wvl.txt}$.
+-c: Selects the simulated wavelength from the provided $\texttt{wvl.txt}$ file. If there are $C$ rows (corresponding to $C$ wavelengths) in $\texttt{wvl.txt}$, this input argument should be an integer between 0 and $C-1$, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in $\texttt{wvl.txt}$.
 
--d: selects the simulated incident direction from the provided $\texttt{wi.txt}$ file. If there are $D$ rows (corresponding to $D$ incident directions) in $\texttt{wi.txt}$, this input argument should be an integer between 0 and $D-1$, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in $\texttt{wi.txt}$.
+-d: Selects the simulated incident direction from the provided $\texttt{wi.txt}$ file. If there are $D$ rows (corresponding to $D$ incident directions) in $\texttt{wi.txt}$, this input argument should be an integer between 0 and $D-1$, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in $\texttt{wi.txt}$.
 
 -e: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
 
@@ -42,10 +42,9 @@ For individual simulations, the following command-line arguments are relevant:
 -z: The name of the simulated surface. All the expected input files, $\texttt{wi.txt}$, $\texttt{wvl.txt}$, $\texttt{zvals.txt}$, as well as all the output data, exist in the folder with the provided name, under the $\texttt{data}$ directory.
 
 #### Examples
+We now provide some example scripts that can set different collections of simulations running. In the $\texttt{data}$ directory, we have included 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are specified in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files in each subfolder.
 
-We now provide some example scripts that can set different collections of simulations running. In the $\texttt{data}$ directory, we have included 6 folders that corresponding to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are specified in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files in each subfolder.
-
-Our intended basis element length was $d = 0.025 \mu m$, so the height data were provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$. We now use the brushedRough surface as an example.
+Our intended basis element length was $d = 0.025 \mu m$, so the height data were provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$. We now use the $\texttt{brushedRough}$ surface as an example.
 
 ```
 ./bem3d -c 0 -d 0 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z brushedRough
@@ -68,7 +67,6 @@ simulates scattering from the surface using the longest wavelength provided and 
 simulates scattering from the surface using all 25 wavelengths and all 5 incident directions.
 
 #### Outputs
-
 For individual simulations, output BRDFs will be written into binary files under formatted names. These binary files can be opened in $\texttt{MATLAB}$, using the following example code:
 
 ```
