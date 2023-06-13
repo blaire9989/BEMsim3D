@@ -55,7 +55,7 @@ steerBasicDirs: steerBasicDirs.cpp
 	g++ -std=c++11 -I include steerBasicDirs.cpp -O3 -o steerBasicDirs
 	
 steerBRDFs: steerBRDFs.cpp
-	g++ -std=c++11 -I include steerBRDFs.cpp -O3 -o steerBRDFs
+	g++ -std=c++11 -I include steerBRDFs.cpp -lpthread -O3 -o steerBRDFs
 	
 clean:
 	rm -f bem3d steerBasicDirs steerBRDFs
