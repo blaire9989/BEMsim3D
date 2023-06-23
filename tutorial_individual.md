@@ -53,6 +53,7 @@ should generate one binary file. This binary file, as well as all the output fil
 ```
 id = fopen('BRDF_wvl0_wi0.binary');
 brdf00 = fread(id, [1024 1024], 'float');   % single precision is used
+imshow(brdf00);
 ```
 The image should look like the following:
 
@@ -60,12 +61,8 @@ The image should look like the following:
   <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/test/brdf00.jpg" alt="gray" style="width:300px;"/>
 </p>
 
-Additionally, we also provided 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are provided in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files. For these surfaces, our intended basis element length is $d = 0.025 \mu m$, and so the height data are provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$. As an example, running the command
-```
-./bem3d -d 0 -e 1.0 -l 24.0 -o 1024 -w 5.5 -z isotropicSmooth
-```
-should generate 25 binary files that contain spectral BRDF data, which can be converted into RGB to make this colored image (without the gray area). It requires having 4 GPUs and takes around 2 hours:
+We also provided 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are provided in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files. For these surfaces, our intended basis element length is $d = 0.025 \mu m$, and so the height data are provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$.
 
-<p align="center">
-  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/isotropicSmooth/example.jpg" alt="colored" style="width:300px;"/>
-</p>
+#### One Final Note
+
+Data stored in the input $\texttt{zvals.txt}$ and the output BRDF binary files are matrices, and can be accessed using a pair of integer indices. The first (row) index is associated with the $x$ direction and the second (column) index is associated with the $y$ direction. This means that users may want to transpose (and flip) the data matrices for visualization purposes, in order to conform with $xy$ plane representations.
