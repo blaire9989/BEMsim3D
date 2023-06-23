@@ -80,8 +80,13 @@ static dcomp cuDB(0.0, 1.0);
 static fcomp cuFL(0.0f, 1.0f);
 
 static MatrixXd readData(string fileToOpen) {
+    ifstream matrixDataFile;
+    matrixDataFile.open(fileToOpen);
+    if (!matrixDataFile) {
+        cout << "Cannot find input file " << fileToOpen << ". The code assumes that it is executed from immediately within the BEMsim3D directory." << endl;
+        exit(1);
+    }
     vector<double> matrixEntries;
-    ifstream matrixDataFile(fileToOpen);
     string matrixRowString;
     string matrixEntry;
     int matrixRowNumber = 0;
@@ -105,7 +110,8 @@ namespace Eigen {
             in.read(reinterpret_cast<char*>(matrix.data()), rows * cols * static_cast<typename Matrix::Index>(sizeof(typename Matrix::Scalar)));
             in.close();
         } else {
-            cout << "Can not open binary matrix file: " << filename << endl;
+            cout << "Cannot open binary matrix file " << filename << ". The code assumes that it is executed from immediately within the BEMsim3D directory." << endl;
+            exit(1);
         }
     }
     template<class Matrix> inline void writeBinary(const string& filename, const Matrix& matrix) {
@@ -117,7 +123,7 @@ namespace Eigen {
             out.write(reinterpret_cast<const char*>(matrix.data()), rows * cols * static_cast<typename Matrix::Index>(sizeof(typename Matrix::Scalar)));
             out.close();
         } else {
-            cout << "Can not write to binary matrix file: " << filename << endl;
+            cout << "Cannot write to binary matrix file: " << filename << endl;
         }
     }
     template<class Matrix> inline void writeData(const string& filename, const Matrix& matrix) {
@@ -127,7 +133,7 @@ namespace Eigen {
             out.write(reinterpret_cast<const char*>(matrix.data()), rows * cols * static_cast<typename Matrix::Index>(sizeof(typename Matrix::Scalar)));
             out.close();
         } else {
-            cout << "Can not write to binary matrix file: " << filename << endl;
+            cout << "Cannot write to binary matrix file: " << filename << endl;
         }
     }
 }
