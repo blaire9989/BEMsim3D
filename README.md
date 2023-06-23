@@ -31,4 +31,10 @@ For instructions on grouped simulations with beam steering, please see [this add
 
 For any questions on the code base, please contact the author at yy735@cornell.edu.
 
-Full-wave simulations are in general slow. It is recommended to run these simulations on large-scale platforms with at least 4 GPUs available. The average simulation time estimations reported in our paper correspond to simulations done with 4 Nvidia RTX 3090 GPUs. These time estimations may imply that running simulations corresponding to a collection of wavelengths and incident directions may take many hours.
+Full-wave simulations are in general slow and require intense computations. The following suggestions / facts may be helpful:
+
+(a) It is recommended to run these simulations on large-scale platforms with at least 4 GPUs available. The average simulation time estimations reported in our paper correspond to simulations done with 4 Nvidia RTX 3090 GPUs.
+
+(b) Running simulations corresponding to a collection of wavelengths and incident directions may take many hours, even days.
+
+(c) When running simulations using shared resources (e.g. Linux clusters), using job scheduling (e.g. with [SLURM](https://nesi.github.io/hpc_training/lessons/pan/job-scheduler/)) may be preferred over running in interactive mode, since heavy jobs might be killed before completion.
