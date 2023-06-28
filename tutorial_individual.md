@@ -58,7 +58,7 @@ imshow(brdf00);
 The image should look like the following:
 
 <p align="center">
-  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/test/brdf00.jpeg" alt="gray" style="width:500px;"/>
+  <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/test/brdf00.jpeg" alt="gray" style="width:600px;"/>
 </p>
 
 Reading the data into a matrix in a different environment (e.g. Python) might produce a transposed image. 
