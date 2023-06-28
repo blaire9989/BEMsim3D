@@ -28,9 +28,9 @@ If you intend to simulate a surface with size $L \mu m \times L \mu m$, and your
 #### Command Line Arguments 
 For individual simulations, the following command-line arguments are relevant:
 
-$\texttt{-c}$: Selects the simulated wavelength from the provided $\texttt{wvl.txt}$ file. If there are $C$ rows (corresponding to $C$ wavelengths) in $\texttt{wvl.txt}$, this input argument should be an integer between 0 and $C-1$, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in $\texttt{wvl.txt}$.
+$\texttt{-c}$: Selects the simulated wavelength from the provided $\texttt{wvl.txt}$ file. If there are $C$ rows in $\texttt{wvl.txt}$, this input argument should be an integer between 0 and $C-1$, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in $\texttt{wvl.txt}$.
 
-$\texttt{-d}$: Selects the simulated incident direction from the provided $\texttt{wi.txt}$ file. If there are $D$ rows (corresponding to $D$ incident directions) in $\texttt{wi.txt}$, this input argument should be an integer between 0 and $D-1$, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in $\texttt{wi.txt}$.
+$\texttt{-d}$: Selects the simulated incident direction from the provided $\texttt{wi.txt}$ file. If there are $D$ rows in $\texttt{wi.txt}$, this input argument should be an integer between 0 and $D-1$, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in $\texttt{wi.txt}$.
 
 $\texttt{-e}$: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
 
