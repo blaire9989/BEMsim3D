@@ -13,7 +13,7 @@ As we will discuss in the command line arguments section, users are also expecte
 A $\texttt{.txt}$ files that contains some rows of data, where each row specifies a wavelength to be simulated. Each row contains 3 values, where the first value is the wavelength in microns, generally between 0.4 and 0.7. The second and third values are the real and imaginary parts of the surface material's index of refraction (IOR) at the provided wavelength. For materials such as metals, these values vary can significantly with wavelength.
 
 ##### wi.txt
-A $\texttt{.txt}$ files that contains some rows of data, where each row specifies an incident direction to be simulated. Each row contains 2 values, where the first value is the zenith ($\theta$) angle of the incident direction, and the second is the azimuth ($\phi$) angle of the incident direction. Fpr normal incidence, both angles are 0. For grazing incident directions, the first value should be close to $\pi / 2$.
+A $\texttt{.txt}$ files that contains some rows of data, where each row specifies an incident direction to be simulated. Each row contains 2 values, where the first value is the zenith ($\theta$) angle of the incident direction, and the second is the azimuth ($\phi$) angle of the incident direction. For normal incidence, both angles are 0. For grazing incident directions, the first value should be close to $\pi / 2$.
 
 ##### Formatting
 All the data values in the aforementioned $\texttt{.txt}$ files are assumed to be delimited by commas(,) in each row. We usually construct the input data matrices in $\texttt{MATLAB}$ and use the $\texttt{writematrix}$ function in $\texttt{MATLAB}$ to write the $\texttt{.txt}$ files.
@@ -49,10 +49,10 @@ After building the code base, running
 ```
 ./bem3d -c 0 -d 0 -e 1.0 -l 12.5 -o 1024 -w 2.5 -z test   # The -c and -d arguments are optional as there is only one queried wavelength and incident direction
 ```
-should generate one binary file. This binary file, as well as all the output files with similarly formatted names, can be opened in $\texttt{MATLAB}$ using
+should generate one binary file. This binary file, as well as all the output files with similarly formatted names, should contain $N_{out} \times N_{out}$ single precision floating point numbers, where $N_{out}$ is your $\texttt{-o}$ input argument above. The output file from running the command above can therefore be opened in $\texttt{MATLAB}$ using
 ```
 id = fopen('BRDF_wvl0_wi0.binary');
-brdf00 = fread(id, [1024 1024], 'float');   % single precision is used
+brdf00 = fread(id, [1024 1024], 'float');
 imshow(brdf00);
 ```
 The image should look like the following:
@@ -61,8 +61,10 @@ The image should look like the following:
   <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/test/brdf00.jpg" alt="gray" style="width:300px;"/>
 </p>
 
+Reading the data into a matrix in a different environment (e.g. Python) might produce a transposed image. 
+
 We also provided 6 folders that correspond to our featured $24 \mu m \times 24 \mu m$ surface samples. The surface heights, as well as the 25 wavelengths and 5 incident directions we considered are provided in the $\texttt{zvals.txt}$, $\texttt{wvl.txt}$ and $\texttt{wi.txt}$ files. For these surfaces, our intended basis element length is $d = 0.025 \mu m$, and so the height data are provided as $961 \times 961$ matrices in $\texttt{zvals.txt}$.
 
 #### One Final Note
 
-Data stored in the input $\texttt{zvals.txt}$ and the output BRDF binary files are matrices, and can be accessed using a pair of integer indices. The first (row) index is associated with the $x$ direction and the second (column) index is associated with the $y$ direction. This means that users may want to transpose (and flip) the data matrices for visualization purposes, in order to conform with $xy$ plane representations.
+Data stored in the input $\texttt{zvals.txt}$ and the output BRDF binary files are matrices, and can be accessed using a pair of integer indices. The first (row) index is associated with the $x$ direction and the second (column) index is associated with the $y$ direction, as indicated from the image above. This means that users may want to transpose (and flip) the data matrices for visualization purposes, in order to conform with $xy$ plane representations.
