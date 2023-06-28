@@ -49,7 +49,7 @@ After building the code base, running
 ```
 ./bem3d -c 0 -d 0 -e 1.0 -l 12.5 -o 1024 -w 2.5 -z test   # The -c and -d arguments are optional as there is only one queried wavelength and incident direction
 ```
-should generate one binary file. This binary file, as well as all the output files with similarly formatted names, should contain $N_{out} \times N_{out}$ single precision floating point numbers, where $N_{out}$ is your $\texttt{-o}$ input argument above. The output file from running the command above can therefore be opened in $\texttt{MATLAB}$ using
+should generate one binary file in the same folder that contains all the input files. This binary file, as well as all the output files with similarly formatted names, should contain $N_{out} \times N_{out}$ single precision floating point numbers, where $N_{out}$ is your $\texttt{-o}$ input argument above. The output file from running the command above can therefore be opened in $\texttt{MATLAB}$ using
 ```
 id = fopen('BRDF_wvl0_wi0.binary');
 brdf00 = fread(id, [1024 1024], 'float');
