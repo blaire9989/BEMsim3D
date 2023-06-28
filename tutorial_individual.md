@@ -55,7 +55,7 @@ id = fopen('BRDF_wvl0_wi0.binary');
 brdf00 = fread(id, [1024 1024], 'float');
 imshow(brdf00);
 ```
-The image should look like the following:
+The image should look like the following (image values truncated to be between 0 and 1):
 
 <p align="center">
   <img src="https://github.com/blaire9989/BEMsim3D/blob/main/data/test/brdf00.jpeg" alt="gray" style="width:600px;"/>
@@ -67,4 +67,4 @@ We also provided 6 folders that correspond to our featured $24 \mu m \times 24 \
 
 #### One Final Note
 
-Data stored in the input $\texttt{zvals.txt}$ and the output BRDF binary files are matrices, and can be accessed using a pair of integer indices. The first (row) index is associated with the $x$ direction and the second (column) index is associated with the $y$ direction, as indicated from the image above. This means that users may want to transpose (and flip) the data matrices for visualization purposes, in order to conform with $xy$ plane representations.
+Data stored in the input $\texttt{zvals.txt}$ and the output BRDF binary files are matrices, and can be accessed using a pair of integer indices. The first (row) index is associated with the $x$ direction and the second (column) index is associated with the $y$ direction, as indicated from the image above. This means that users may want to rotate the data matrices for visualization purposes, in order to conform with $xy$ plane representations.
