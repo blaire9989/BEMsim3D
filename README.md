@@ -35,6 +35,8 @@ Full-wave simulations are in general slow and require intense computations. The 
 
 (a) It is recommended to run these simulations on large-scale platforms with at least 4 GPUs available. The average simulation time estimations reported in our paper correspond to simulations done with 4 Nvidia RTX 3090 GPUs.
 
-(b) Running simulations corresponding to a collection of wavelengths and incident directions may take many hours, even days.
+(b) It is recommended to allocate at least 32 GB of RAM when running simulation jobs.
 
-(c) When running simulations using shared resources (e.g. Linux clusters), using job scheduling (e.g. with [SLURM](https://nesi.github.io/hpc_training/lessons/pan/job-scheduler/)) may be preferred over running in interactive mode, since heavy jobs might be killed before completion.
+(c) Running simulations corresponding to a collection of wavelengths and incident directions may take many hours, even days.
+
+(d) When running simulations using shared resources (e.g. Linux clusters), using job scheduling (e.g. with [SLURM](https://nesi.github.io/hpc_training/lessons/pan/job-scheduler/)) may be preferred over running in interactive mode, since heavy jobs might be killed before completion.
