@@ -28,19 +28,19 @@ If you intend to simulate a surface with size $L \mu m \times L \mu m$, and your
 #### Command Line Arguments 
 For individual simulations, the following command-line arguments are relevant:
 
-$\texttt{-c}$: Selects the simulated wavelength from the provided $\texttt{wvl.txt}$ file. If there are $C$ rows in $\texttt{wvl.txt}$, this input argument should be an integer between 0 and $C-1$, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in $\texttt{wvl.txt}$.
+-c: Selects the simulated wavelength from the provided $\texttt{wvl.txt}$ file. If there are $C$ rows in $\texttt{wvl.txt}$, this input argument should be an integer between 0 and $C-1$, inclusive. If the user does not specify this argument, simulations will be done for all the wavelengths specified in $\texttt{wvl.txt}$.
 
-$\texttt{-d}$: Selects the simulated incident direction from the provided $\texttt{wi.txt}$ file. If there are $D$ rows in $\texttt{wi.txt}$, this input argument should be an integer between 0 and $D-1$, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in $\texttt{wi.txt}$.
+-d: Selects the simulated incident direction from the provided $\texttt{wi.txt}$ file. If there are $D$ rows in $\texttt{wi.txt}$, this input argument should be an integer between 0 and $D-1$, inclusive. If the user does not specify this argument, simulations will be done for all the incident directions specified in $\texttt{wi.txt}$.
 
-$\texttt{-e}$: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
+-e: The index of refraction (IOR) of the medium where the light is incident from. Usually chosen as 1.0, but it can be any real number indicating any dielectric medium.
 
-$\texttt{-l}$: The side length of the simulated surface, along the $x$ and $y$ directions, in microns. Note that since surface samples are assumed to be square, we only have this one size parameter.
+-l: The side length of the simulated surface, along the $x$ and $y$ directions, in microns. Note that since surface samples are assumed to be square, we only have this one size parameter.
 
-$\texttt{-o}$: An integer that represents the resolution of the output image containing BRDF values. All the figures in our paper were made with this argument set to 1024 ($1024 \times 1024$ images).
+-o: An integer that represents the resolution of the output image containing BRDF values. All the figures in our paper were made with this argument set to 1024 ($1024 \times 1024$ images).
 
-$\texttt{-w}$: The primary waist of the incident Gaussian beams used for simulations (see Section 3 of the paper for the term primary waist), in microns. Usually, for a simulated surface of $L \mu m \times L \mu m$, this argument can be chosen as $L / 2.5$. The incident Gaussian beam is approximately focused at the center of the surface patch.
+-w: The primary waist of the incident Gaussian beams used for simulations (see Section 3 of the paper for the term primary waist), in microns. Usually, for a simulated surface of $L \mu m \times L \mu m$, this argument can be chosen as $L / 2.5$. The incident Gaussian beam is approximately focused at the center of the surface patch.
 
-$\texttt{-z}$: The name of the simulated surface. All the expected input files, $\texttt{wi.txt}$, $\texttt{wvl.txt}$, $\texttt{zvals.txt}$, as well as all the output data, exist in the folder with the provided name, under the $\texttt{data}$ directory.
+-z: The name of the simulated surface. All the expected input files, $\texttt{wi.txt}$, $\texttt{wvl.txt}$, $\texttt{zvals.txt}$, as well as all the output data, exist in the folder with the provided name, under the $\texttt{data}$ directory.
 
 #### Examples
 We provided a simple, small-scale example that can be used for initial testing. The required input data are provided in $\texttt{data/test}$ folder. This surface sample is intended to be $12.5 \mu m \times 12.5 \mu m$, and the matrix provided in $\texttt{zvals.txt}$ is $401 \times 401$.
